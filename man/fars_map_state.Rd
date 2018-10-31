@@ -4,7 +4,7 @@
 \alias{fars_map_state}
 \title{Plot FARS accidents on the map of the state (of given ID number)}
 \usage{
-fars_map_state(state.num, year)
+fars_map_state(state.num = 13, year = 2013)
 }
 \arguments{
 \item{state.num}{State identification number, allowed values in range from 1 to 56 without {3,7,14,43,52}}

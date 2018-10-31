@@ -4,7 +4,7 @@
 \alias{fars_read}
 \title{Read FARS data}
 \usage{
-fars_read(filename)
+fars_read(filename = farsReport:::fars_make_filename())
 }
 \arguments{
 \item{filename}{A relative file to csv file, with dec="." and sep="," (due to use of read_csv)}
@@ -20,6 +20,6 @@ The function checks for presence of specified file, if present, reads the file a
 The function cannot unpredictably malfunction, all error cases are covered with the if statement
 }
 \examples{
-fars_read("inst/extdata/accident_2013.csv.bz2")
+fars_read(farsReport:::fars_make_filename())
 
 }
