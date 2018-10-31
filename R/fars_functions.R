@@ -142,7 +142,7 @@ fars_summarize_years <- function(years = c("2013", "2014", "2015")) {
 #' fars_map_state(23, 2013)
 #'
 #' @export
-fars_map_state <- function(state.num, year) {
+fars_map_state <- function(state.num = 13, year = 2013) {
         filename <- fars_make_filename(year)
         data <- fars_read(filename)
         state.num <- as.integer(state.num)
