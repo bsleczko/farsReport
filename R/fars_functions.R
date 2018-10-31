@@ -44,9 +44,10 @@ fars_read <- function(filename) {
 #' make_filename(2015)
 #'
 #' @export
-make_filename <- function(year){
+make_filename <- function(year = "2013"){
   year <- as.integer(year)
   if (year %in% as.integer(c("2013", "2014","2015"))){
+    #return(sprintf("/inst/extdata/accident_%d.csv.bz2", year))
     return(system.file("extdata", sprintf("accident_%d.csv.bz2", year), package="farsReport"))
   }
   else{
