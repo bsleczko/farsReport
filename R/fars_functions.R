@@ -13,10 +13,7 @@
 #' @details The function cannot unpredictably malfunction, all error cases are covered with the if statement
 #'
 #' @examples
-#' fars_read("data/accident_2013.csv.bz2")
-#' fars_tib <- fars_read("data/accident_2013.csv.bz2")
-#' fars_tib <- fars_read("data/accident_2014.csv.bz2")
-#' fars_tib <- fars_read("data/accident_2015.csv.bz2")
+#' fars_read("inst/extdata/accident_2013.csv.bz2")
 #'
 #' @export
 fars_read <- function(filename) {

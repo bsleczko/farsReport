@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "FARS reporting"
+author: "TheSecretHiddenAuthor"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -15,24 +15,34 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+# FARS datasets
+The package contains data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System,
+which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The package allows easy reporting of FARS data sets from 2013, 2014 and 2015.
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+## FARS data structure
+The head of example dataset is written below:
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+```{r, echo=FALSE, results='asis'}
+source("R/fars_functions.R")
+knitr::kable(head(fars_read(make_filename()), 10))
+```
 
-## Vignette Info
+The function responsible for reading the data is `fars_read(filename)`, whereas filename argument is generated via the `make_filename(year)` function, which returns path to dataset from saved range of years 2013-2015.
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+# FARS reporting
 
-## Styles
+## FARS summary
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+## FARS mapplot per state
+Plot FARS accidents on the map of the state (of given ID number)
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+This function for given state and year plots the map of the FARS accident on the border of the state
+This function does not return any data, side effect of the function is the plot of FARS accident on the border map of the state
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
 
 ## Figures
 
