@@ -2,8 +2,8 @@ Package: farsReport
 Type: Package
 Title: Plotting and summarising FARS data
 Version: 0.1.0
-Author: TheSecretHiddenAuthor
-Maintainer: randomEmail@gmail.com
+Author: TheSecretHiddenAuthor <randomEmail@gmail.com>
+Maintainer: TheSecretHiddenAuthor <randomEmail@gmail.com>
 Description: The package contains data from the US National Highway Traffic Safety Administration's
     Fatality Analysis Reporting System, which is a nationwide census providing the American public
     yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
