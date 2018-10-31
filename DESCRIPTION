@@ -11,6 +11,9 @@ Description: The package contains data from the US National Highway Traffic Safe
 License: GPL
 Encoding: UTF-8
 LazyData: true
+Imports: dplyr,
+    magrittr,
+    tidyr
 Suggests:
     knitr,
     rmarkdown,
