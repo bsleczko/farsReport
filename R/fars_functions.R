@@ -109,7 +109,7 @@ fars_read_years <- function(years) {
 #' fars_summarize_years(c("2013", "2014", "2015"))
 #'
 #' @export
-fars_summarize_years <- function(years) {
+fars_summarize_years <- function(years = c("2013", "2014", "2015")) {
         dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>%
                 dplyr::group_by(year, MONTH) %>%

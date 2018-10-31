@@ -16,60 +16,35 @@ knitr::opts_chunk$set(
 )
 ```
 # FARS datasets
-The package contains data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System,
-which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The package allows easy reporting of FARS data sets from 2013, 2014 and 2015.
+The package contains data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The package allows easy reporting of FARS data sets from 2013, 2014 and 2015.
+
+## FARS reporting
+The `farsReport` package provides two functions for FARS reporting, the first is returning a tibble summarising the FARS for specified set of years, the second is plotting the FARS accidents on the map of the specified state, for specified `year`.
+
+### FARS summary
+The `fars_summarize_years(years)` function will summarize the FARS accidents per month and year, for given set of `years`.
+
+```{r}
+library(farsReport)
+farsReport::fars_summarize_years(years = c(2013, 2014))
+
+```
+
+### FARS mapplot per state
+The `fars_map_state(state.num, year)` function will plot FARS accidents for specififed `year` on border map of the state (specified by `state.num` parameter). This function does not return any data, the side effect of the function is the plot of FARS accident on the border map of the state.
+
+```{r, fig.show='hold'}
+library(farsReport)
+farsReport::fars_map_state(state.num = 13, year = 2014)
+farsReport::fars_map_state(state.num = 34, year = 2014)
+```
 
 ## FARS data structure
-The head of example dataset is written below:
+The function responsible for reading the data is `fars_read(filename)`, whereas filename argument is generated via the `fars_make_filename(year)` function, which returns path to a `year` dataset from saved range of years 2013-2015 (with default `year` being 2013).
 
-```{r, echo=FALSE, results='asis'}
-source("R/fars_functions.R")
-knitr::kable(head(fars_read(make_filename()), 10))
+The structure of an example dataset (for year 2013) is written below:
+
+```{r, echo=FALSE}
+library(farsReport)
+knitr::kable(str(farsReport::fars_read(farsReport::fars_make_filename())))
 ```
-
-The function responsible for reading the data is `fars_read(filename)`, whereas filename argument is generated via the `make_filename(year)` function, which returns path to dataset from saved range of years 2013-2015.
-
-# FARS reporting
-
-## FARS summary
-
-## FARS mapplot per state
-Plot FARS accidents on the map of the state (of given ID number)
-
-This function for given state and year plots the map of the FARS accident on the border of the state
-This function does not return any data, side effect of the function is the plot of FARS accident on the border map of the state
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
