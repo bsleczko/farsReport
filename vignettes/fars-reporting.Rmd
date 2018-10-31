@@ -27,7 +27,6 @@ The `fars_summarize_years(years)` function will summarize the FARS accidents per
 ```{r}
 library(farsReport)
 farsReport::fars_summarize_years(years = c(2013, 2014))
-
 ```
 
 ### FARS mapplot per state
