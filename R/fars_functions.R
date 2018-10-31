@@ -39,12 +39,12 @@ fars_read <- function(filename) {
 #' is missing
 #'
 #' @examples
-#' make_filename("2013")
-#' make_filename(2014)
-#' make_filename(2015)
+#' fars_make_filename("2013")
+#' fars_make_filename(2014)
+#' fars_make_filename(2015)
 #'
 #' @export
-make_filename <- function(year = "2013"){
+fars_make_filename <- function(year = "2013"){
   year <- as.integer(year)
   if (year %in% as.integer(c("2013", "2014","2015"))){
     #return(sprintf("/inst/extdata/accident_%d.csv.bz2", year))
@@ -76,7 +76,7 @@ make_filename <- function(year = "2013"){
 #' @export
 fars_read_years <- function(years) {
         lapply(years, function(year) {
-                file <- make_filename(year)
+                file <- fars_make_filename(year)
                 tryCatch({
                         dat <- fars_read(file)
                         dplyr::mutate(dat, year = year) %>%
@@ -143,7 +143,7 @@ fars_summarize_years <- function(years) {
 #'
 #' @export
 fars_map_state <- function(state.num, year) {
-        filename <- make_filename(year)
+        filename <- fars_make_filename(year)
         data <- fars_read(filename)
         state.num <- as.integer(state.num)
 
