@@ -4,6 +4,7 @@ export("fars_read")
 export("fars_read_years")
 export("fars_summarize_years")
 export("fars_map_state")
+export("fars_make_filename")
 
 importFrom("readr", "read_csv")
 importFrom("dplyr", "tbl_df", "mutate", "select", "bind_rows", "group_by", "summarize")
