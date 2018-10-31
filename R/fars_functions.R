@@ -16,7 +16,7 @@
 #' fars_read("inst/extdata/accident_2013.csv.bz2")
 #'
 #' @export
-fars_read <- function(filename) {
+fars_read <- function(filename = farsReport:::fars_make_filename()) {
         if(!file.exists(filename))
                 stop("file '", filename, "' does not exist")
         data <- suppressMessages({
